@@ -1,0 +1,92 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: auth-server
+  labels:
+    app: auth-server
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: auth-server
+  template:
+    metadata:
+      labels:
+        app: auth-server
+    spec:
+      containers:
+        - name: auth-server
+          # fluxcd 이미지 자동교체 대상 지정
+          # fluxcd.io/containers: auth-server
+          image: shinyubin/image-converter-authentication:0.0.1
+          ports:
+            - containerPort: 3000
+          env:
+            - name: COOKIE_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: auth-secret
+                  key: COOKIE_SECRET
+
+            - name: API_SERVER_URL
+              valueFrom:
+                secretKeyRef:
+                  name: auth-secret
+                  key: API_SERVER_URL
+
+            - name: FE_SERVER_URL
+              valueFrom:
+                secretKeyRef:
+                  name: auth-secret
+                  key: FE_SERVER_URL
+
+            - name: GOOGLE_CLIENT_ID
+              valueFrom:
+                secretKeyRef:
+                  name: auth-secret
+                  key: GOOGLE_CLIENT_ID
+
+            - name: GOOGLE_CLIENT_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: auth-secret
+                  key: GOOGLE_CLIENT_SECRET
+
+            - name: GOOGLE_REDIRECT_URI
+              valueFrom:
+                secretKeyRef:
+                  name: auth-secret
+                  key: GOOGLE_REDIRECT_URI
+
+            - name: REDIS_HOST
+              valueFrom:
+                secretKeyRef:
+                  name: auth-secret
+                  key: REDIS_HOST
+
+            - name: REDIS_PORT
+              valueFrom:
+                secretKeyRef:
+                  name: auth-secret
+                  key: REDIS_PORT
+
+          resources:
+            requests:
+              cpu: "250m"
+              memory: "256Mi"
+            limits:
+              cpu: "500m"
+              memory: "512Mi"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: auth-service
+spec:
+  type: ClusterIP
+  selector:
+    app: auth-server
+  ports:
+    - port: 80
+      targetPort: 3000
+      protocol: TCP

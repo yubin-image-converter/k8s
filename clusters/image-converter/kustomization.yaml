@@ -1,0 +1,8 @@
+resources:
+  - apps/api
+  - apps/argo
+  - apps/auth
+  - apps/frontend
+  - apps/rabbitmq
+  - ../../infrastructures/cert-manager
+  - ../../infrastructures/ingress

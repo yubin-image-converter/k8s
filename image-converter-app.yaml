@@ -1,0 +1,17 @@
+# image-converter-app.yaml
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: image-converter
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/yubin-image-converter/k8s
+    targetRevision: HEAD
+    path: clusters/image-converter
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: default
+  syncPolicy:
+    automated: {}

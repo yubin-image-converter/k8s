@@ -1,0 +1,13 @@
+# Argo CD Secret - 절대 커밋 금지!
+clusters/image-converter/apps/argo/argocd-secret.yaml
+
+# macOS 불필요 파일
+.DS_Store
+
+# Kustomize build output
+*.tmp
+*.bak
+.kubeconfig
+
+# Kubernetes client cache
+.kube/
