@@ -1,2 +1,5 @@
 resources:
   - argocd-proxy-svc.yaml
+  - argocd-rbac-cm.yaml
+  - argocd-secret.yaml
+  - argo-ingress.yaml

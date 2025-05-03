@@ -11,7 +11,6 @@ spec:
         - image-converter.yubinshin.com
         - api.image-converter.yubinshin.com
         - authentication.image-converter.yubinshin.com
-        - argo.image-converter.yubinshin.com
       secretName: image-converter-tls
   rules:
     - host: image-converter.yubinshin.com
@@ -41,13 +40,3 @@ spec:
               service:
                 name: auth-service
                 port: { number: 80 }
-    - host: argo.image-converter.yubinshin.com
-      http:
-        paths:
-          - path: /
-            pathType: Prefix
-            backend:
-              service:
-                name: argocd-server
-                port:
-                  number: 80

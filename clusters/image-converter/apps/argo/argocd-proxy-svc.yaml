@@ -4,12 +4,10 @@ metadata:
   name: argocd-server
   namespace: default
   annotations:
-    cloud.google.com/neg: '{"ingress": true }'
+    cloud.google.com/neg: '{"ingress": true}'
 spec:
-  type: ClusterIP
   selector:
     app.kubernetes.io/name: argocd-server
-    app.kubernetes.io/instance: argocd
   ports:
     - name: http
       port: 80
@@ -17,3 +15,4 @@ spec:
     - name: https
       port: 443
       targetPort: 8080
+  type: ClusterIP
