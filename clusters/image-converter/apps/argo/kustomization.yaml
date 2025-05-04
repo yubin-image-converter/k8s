@@ -3,3 +3,7 @@ resources:
   - argocd-rbac-cm.yaml
   - argocd-secret.yaml
   - argo-ingress.yaml
+  - argo-tls-certificate.yaml
+  - argocd-cm.yaml
+  - argocd-image-updater-config.yaml
+  - argocd-image-updater-rbac.yaml
