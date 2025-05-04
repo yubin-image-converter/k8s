@@ -2,22 +2,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: frontend
+  name: frontend-server
   labels:
-    app: frontend
+    app: frontend-server
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: frontend
+      app: frontend-server
   template:
     metadata:
       labels:
-        app: frontend
+        app: frontend-server
     spec:
       containers:
         - name: frontend
-          image: shinyubin/image-converter-fe:0.1.0
+          image: shinyubin/image-converter-fe:latest
           ports:
             - containerPort: 80
           env:
@@ -26,27 +26,13 @@ spec:
                 secretKeyRef:
                   name: fe-secret
                   key: VITE_GOOGLE_CLIENT_ID
-
             - name: VITE_API_SERVER_URL
               valueFrom:
                 secretKeyRef:
                   name: fe-secret
                   key: VITE_API_SERVER_URL
-
             - name: VITE_AUTHENTICATION_SERVER_URL
               valueFrom:
                 secretKeyRef:
                   name: fe-secret
                   key: VITE_AUTHENTICATION_SERVER_URL
-
-apiVersion: v1
-kind: Service
-metadata:
-  name: frontend-service
-spec:
-  type: ClusterIP
-  selector:
-    app: frontend
-  ports:
-    - port: 80
-      targetPort: 80

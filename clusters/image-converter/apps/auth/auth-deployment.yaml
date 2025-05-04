@@ -18,7 +18,7 @@ spec:
         - name: auth-server
           # fluxcd 이미지 자동교체 대상 지정
           # fluxcd.io/containers: auth-server
-          image: shinyubin/image-converter-authentication:0.0.1
+          image: shinyubin/image-converter-authentication:latest
           ports:
             - containerPort: 3000
           env:
@@ -77,16 +77,3 @@ spec:
             limits:
               cpu: "500m"
               memory: "512Mi"
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: auth-service
-spec:
-  type: ClusterIP
-  selector:
-    app: auth-server
-  ports:
-    - port: 80
-      targetPort: 3000
-      protocol: TCP

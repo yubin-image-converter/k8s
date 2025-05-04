@@ -1,2 +1,3 @@
 resources:
   - auth-deployment.yaml
+  - auth-service.yaml
