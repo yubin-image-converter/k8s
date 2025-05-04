@@ -1,5 +1,6 @@
 # Argo CD Secret - 절대 커밋 금지!
 clusters/image-converter/apps/argo/argocd-secret.yaml
+clusters/image-converter/apps/argo/argocd-image-updater-secret.yaml
 
 # macOS 불필요 파일
 .DS_Store

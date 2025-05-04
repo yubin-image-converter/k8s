@@ -6,6 +6,14 @@ metadata:
 data:
   registries.conf: |
     registries:
-      - name: Docker Hub
+      - name: DockerHub
         prefix: docker.io
-        credentials: secret:argocd/dockerhub-credentials
+        api_url: https://registry-1.docker.io
+        credentials: secret:argocd-image-updater-secret
+        default: true
+  git.commit-message-template: |
+    chore: Update image to {{ .NewImage }}
+  git.user: YubinShin
+  git.email: shin.yubin18@gmail.com
+  git.writeBranch: main
+  log.level: debug

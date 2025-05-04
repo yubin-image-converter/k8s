@@ -7,3 +7,4 @@ resources:
   - argocd-cm.yaml
   - argocd-image-updater-config.yaml
   - argocd-image-updater-rbac.yaml
+  - argocd-notification-cm.yaml
