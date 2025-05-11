@@ -12,5 +12,6 @@
 image-converter-k8s.code-workspace
 
 secret.yaml
+**/secret.yaml
 
 *.pem
