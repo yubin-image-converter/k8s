@@ -11,5 +11,4 @@ resources:
   - apps/rabbitmq-dev.yaml
 
   # 인프라
-  - infrastructure/cert-manager.yaml
-  - infrastructure/ingress.yaml
+  - infrastructures
