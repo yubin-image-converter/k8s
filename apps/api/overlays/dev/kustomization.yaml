@@ -9,6 +9,6 @@ patchesStrategicMerge:
 
 images:
   - name: shinyubin/image-converter-api
-    newTag: latest # 원하는 태그
+    newTag: latest
 
 namespace: image-converter
