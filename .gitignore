@@ -1,7 +1,3 @@
-# Argo CD Secret - 절대 커밋 금지!
-clusters/image-converter/apps/argo/argocd-secret.yaml
-clusters/image-converter/apps/argo/argocd-image-updater-secret.yaml
-
 # macOS 불필요 파일
 .DS_Store
 
@@ -12,3 +8,7 @@ clusters/image-converter/apps/argo/argocd-image-updater-secret.yaml
 
 # Kubernetes client cache
 .kube/
+
+image-converter-k8s.code-workspace
+
+secret.yaml

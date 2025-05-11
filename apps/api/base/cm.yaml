@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: api-config
+  namespace: image-converter
+data:
+  SPRING_PROFILES_ACTIVE: "dev" # overlay에서 override 가능
