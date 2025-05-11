@@ -12,6 +12,6 @@ images:
   - name: shinyubin/image-converter-api
     newTag: latest
 
-namespace: image-converter
+namespace: api
 
 nameSuffix: -dev
