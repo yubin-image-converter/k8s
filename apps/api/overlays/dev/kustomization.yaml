@@ -3,6 +3,7 @@ kind: Kustomization
 
 resources:
   - ../../base
+  - sealed-secret.yaml
 
 patchesStrategicMerge:
   - patch-env.yaml
@@ -12,3 +13,5 @@ images:
     newTag: latest
 
 namespace: image-converter
+
+nameSuffix: -dev
