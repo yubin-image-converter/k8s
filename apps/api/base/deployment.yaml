@@ -45,7 +45,7 @@ spec:
 
             # ─── JPA/Hibernate 옵션 (필요하다면)
             - name: SPRING_JPA_HIBERNATE_DDL_AUTO
-              value: create
+              value: update
 
             - name: SPRING_JPA_SHOW_SQL
               value: "false"
