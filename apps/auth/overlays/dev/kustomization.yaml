@@ -4,3 +4,7 @@ kind: Kustomization
 resources:
   - ../../base
   - sealed-secret.yaml
+
+namespace: auth
+
+nameSuffix: -dev

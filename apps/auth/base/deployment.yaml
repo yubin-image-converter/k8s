@@ -16,8 +16,6 @@ spec:
     spec:
       containers:
         - name: auth-server
-          # fluxcd 이미지 자동교체 대상 지정
-          # fluxcd.io/containers: auth-server
           image: shinyubin/image-converter-authentication:latest
           ports:
             - containerPort: 3000
