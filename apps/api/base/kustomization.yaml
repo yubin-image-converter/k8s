@@ -8,3 +8,4 @@ resources:
   - service.yaml
   - cm.yaml
   - secret.yaml
+  - sealed-secret.yaml
