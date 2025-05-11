@@ -1,2 +1,2 @@
 resources:
-  - multi-ingress.yaml
+  - ingress.yaml

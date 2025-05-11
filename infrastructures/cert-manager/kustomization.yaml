@@ -1,2 +1,2 @@
 resources:
-  - letsencrypt-prod-issuer.yaml
+  - cluster-issuer.yaml

@@ -4,7 +4,6 @@ kind: Kustomization
 namespace: image-converter
 
 resources:
-  - namespace.yaml
   - deployment.yaml
   - service.yaml
   - cm.yaml
