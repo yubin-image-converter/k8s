@@ -3,8 +3,6 @@ kind: Kustomization
 
 nameSuffix: -dev
 
-namespace: worker
-
 resources:
   - ../../base
   - sealed-secret.yaml
