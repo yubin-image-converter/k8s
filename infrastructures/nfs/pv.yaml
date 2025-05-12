@@ -8,6 +8,6 @@ spec:
   accessModes:
     - ReadWriteMany
   nfs:
-    path: /mnt/nfs/uploads
-    server: "34.64.52.180"
+    server: $(NFS_SERVER)
+    path: $(NFS_PATH)
   persistentVolumeReclaimPolicy: Retain

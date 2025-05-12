@@ -1,3 +1,11 @@
+configMapGenerator:
+  - name: nfs-config
+    envs:
+      - .env.nfs
+
 resources:
-  - ./nfs/pv.yaml
-  - ./nfs/pvc.yaml
+  - pv.yaml
+  - pvc.yaml
+
+generatorOptions:
+  disableNameSuffixHash: true
