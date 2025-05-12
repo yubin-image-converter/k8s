@@ -15,7 +15,6 @@ fi
 echo "🔐 Sealing all secrets using $CERT_PATH..."
 
 for dir in $OVERLAY_DIRS; do
-  echo "📂 Processing $dir"
   SECRET="$dir/secret.yaml"
   SEALED_SECRET="$dir/sealed-secret.yaml"
 
@@ -24,8 +23,11 @@ for dir in $OVERLAY_DIRS; do
     continue
   fi
 
-  # name, namespace 찾기 (metadata.name / metadata.namespace)
-  NAME=$(grep '^  name:' "$SECRET" | head -n1 | awk '{print $2}')
+  # sealed-secret name = overlays/dev 디렉토리명 + -secret
+  APP_NAME=$(basename $(dirname "$dir")) # 예: api, auth...
+  NAME="$APP_NAME-secret-dev"
+
+  # namespace 추출
   NAMESPACE=$(grep '^  namespace:' "$SECRET" | head -n1 | awk '{print $2}')
 
   if [ -z "$NAME" ] || [ -z "$NAMESPACE" ]; then
