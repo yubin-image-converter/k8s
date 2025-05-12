@@ -6,3 +6,6 @@ resources:
   - sealed-secret.yaml
 
 nameSuffix: -dev
+
+patchesStrategicMerge:
+  - patch-env.yaml

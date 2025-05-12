@@ -10,3 +10,6 @@ resources:
 
 generatorOptions:
   disableNameSuffixHash: true
+
+patchesStrategicMerge:
+  - patch-env.yaml

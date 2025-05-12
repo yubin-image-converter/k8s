@@ -8,3 +8,6 @@ resources:
 nameSuffix: -dev
 
 namespace: image-converter
+
+patchesStrategicMerge:
+  - patch-env.yaml
