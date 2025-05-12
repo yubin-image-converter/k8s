@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: worker-config
+data:
+  RABBITMQ_EXCHANGE: image.convert.exchange
+  RABBITMQ_QUEUE: image.convert.queue
+  RABBITMQ_ROUTING_KEY: image.convert.routingKey
+  RABBITMQ_RESULT_QUEUE: image.convert.result.queue
+  NFS_ROOT: /uploads
+  PUBLIC_UPLOAD_BASE_URL: /uploads
+  REDIS_HOST: redis # 'localhost'는 쿠버네티스에서는 안 돼!
+  REDIS_PORT: "6379"
+  REDIS_USER: default
