@@ -23,7 +23,7 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: frontend-service
+                name: frontend-service-dev
                 port:
                   number: 80
     - host: api.image-converter.yubinshin.com
@@ -33,7 +33,7 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: api-service
+                name: api-service-dev
                 port:
                   number: 80
     - host: authentication.image-converter.yubinshin.com
@@ -43,7 +43,7 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: auth-service
+                name: auth-service-dev
                 port:
                   number: 80
     - host: client-socket.image-converter.yubinshin.com
@@ -53,7 +53,7 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: websocket-service
+                name: websocket-service-dev
                 port:
                   number: 4000
     - host: worker-socket.image-converter.yubinshin.com
@@ -63,6 +63,6 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: websocket-service
+                name: websocket-service-dev
                 port:
                   number: 4001
