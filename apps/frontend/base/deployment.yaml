@@ -20,7 +20,6 @@ spec:
           image: shinyubin/image-converter-fe:latest
           ports:
             - containerPort: 80
-        envFrom:
-          - secretRef:
-              name: fe-secret
-
+          envFrom:
+            - secretRef:
+                name: fe-secret
