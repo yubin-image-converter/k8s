@@ -19,55 +19,9 @@ spec:
           image: shinyubin/image-converter-authentication:latest
           ports:
             - containerPort: 3000
-          env:
-            - name: COOKIE_SECRET
-              valueFrom:
-                secretKeyRef:
-                  name: auth-secret
-                  key: COOKIE_SECRET
-
-            - name: API_SERVER_URL
-              valueFrom:
-                secretKeyRef:
-                  name: auth-secret
-                  key: API_SERVER_URL
-
-            - name: FE_SERVER_URL
-              valueFrom:
-                secretKeyRef:
-                  name: auth-secret
-                  key: FE_SERVER_URL
-
-            - name: GOOGLE_CLIENT_ID
-              valueFrom:
-                secretKeyRef:
-                  name: auth-secret
-                  key: GOOGLE_CLIENT_ID
-
-            - name: GOOGLE_CLIENT_SECRET
-              valueFrom:
-                secretKeyRef:
-                  name: auth-secret
-                  key: GOOGLE_CLIENT_SECRET
-
-            - name: GOOGLE_REDIRECT_URI
-              valueFrom:
-                secretKeyRef:
-                  name: auth-secret
-                  key: GOOGLE_REDIRECT_URI
-
-            - name: REDIS_HOST
-              valueFrom:
-                secretKeyRef:
-                  name: auth-secret
-                  key: REDIS_HOST
-
-            - name: REDIS_PORT
-              valueFrom:
-                secretKeyRef:
-                  name: auth-secret
-                  key: REDIS_PORT
-
+          envFrom:
+            - secretRef:
+                name: auth-secret
           resources:
             requests:
               cpu: "250m"
