@@ -4,7 +4,13 @@ metadata:
   name: websocket-server
   namespace: image-converter
 spec:
+  selector:
+    matchLabels:
+      app: websocket
   template:
+    metadata:
+      labels:
+        app: websocket
     spec:
       containers:
         - name: websocket
