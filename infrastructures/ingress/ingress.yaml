@@ -8,9 +8,11 @@ spec:
   ingressClassName: nginx
   tls:
     - hosts:
-        - image-converter.yubinshin.com
-        - api.image-converter.yubinshin.com
-        - authentication.image-converter.yubinshin.com
+      - image-converter.yubinshin.com
+      - api.image-converter.yubinshin.com
+      - authentication.image-converter.yubinshin.com
+      - client-socket.image-converter.yubinshin.com
+      - worker-socket.image-converter.yubinshin.com
       secretName: image-converter-tls
   rules:
     - host: image-converter.yubinshin.com
@@ -40,3 +42,23 @@ spec:
               service:
                 name: auth-service
                 port: { number: 80 }
+  - host: client-socket.image-converter.yubinshin.com
+    http:
+      paths:
+        - path: /
+          pathType: Prefix
+          backend:
+            service:
+              name: websocket-service
+              port:
+                number: 4000
+  - host: worker-socket.image-converter.yubinshin.com
+    http:
+      paths:
+        - path: /
+          pathType: Prefix
+          backend:
+            service:
+              name: websocket-service
+              port:
+                number: 4001
