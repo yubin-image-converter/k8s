@@ -7,7 +7,7 @@ data:
   NODE_ENV: "production"
   LOG_LEVEL: "info"
   CLIENT_ORIGIN: "https://image-converter.yubinshin.com"
-  API_SERVER_URL: "https://api.image-converter.yubinshin.com/api"
+  API_SERVER_URL: "https://api.image-converter.yubinshin.com"
   CLIENT_SOCKET_URL: "wss://client-socket.image-converter.yubinshin.com"
   WORKER_SOCKET_URL: "wss://worker-socket.image-converter.yubinshin.com"
   CLIENT_SOCKET_PORT: "4000"
