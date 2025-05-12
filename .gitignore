@@ -16,4 +16,3 @@ secret.yaml
 
 *.pem
 
-.env.nfs
