@@ -8,3 +8,6 @@ argocd app sync frontend-dev
 argocd app sync websocket-dev
 argocd app sync worker-dev
 argocd app sync rabbitmq-dev
+
+chmod +x ./scripts/seal-all-secrets.sh
+./scripts/seal-all-secrets.sh
