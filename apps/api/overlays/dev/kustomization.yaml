@@ -5,13 +5,10 @@ resources:
   - ../../base
   - sealed-secret.yaml
 
-patchesStrategicMerge:
-  - patch-env.yaml
-
 images:
   - name: shinyubin/image-converter-api
     newTag: latest
 
-namespace: api
-
 nameSuffix: -dev
+
+namespace: image-converter

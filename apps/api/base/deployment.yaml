@@ -17,96 +17,13 @@ spec:
       containers:
         - name: api-server
           image: shinyubin/image-converter-api:latest
-
           ports:
             - containerPort: 8080
-          env:
-            - name: SPRING_PROFILES_ACTIVE
-              value: prod
-
-            # ─── DB 접속 정보
-            - name: SPRING_DATASOURCE_URL
-              valueFrom:
-                secretKeyRef:
-                  name: api-secret
-                  key: SPRING_DATASOURCE_URL
-
-            - name: SPRING_DATASOURCE_USERNAME
-              valueFrom:
-                secretKeyRef:
-                  name: api-secret
-                  key: SPRING_DATASOURCE_USERNAME
-
-            - name: SPRING_DATASOURCE_PASSWORD
-              valueFrom:
-                secretKeyRef:
-                  name: api-secret
-                  key: SPRING_DATASOURCE_PASSWORD
-
-            # ─── JPA/Hibernate 옵션 (필요하다면)
-            - name: SPRING_JPA_HIBERNATE_DDL_AUTO
-              value: update
-
-            - name: SPRING_JPA_SHOW_SQL
-              value: "false"
-
-            # ─── RabbitMQ (초기 연결 연습용)
-            - name: SPRING_RABBITMQ_HOST
-              valueFrom:
-                secretKeyRef:
-                  name: api-secret
-                  key: SPRING_RABBITMQ_HOST
-
-            - name: SPRING_RABBITMQ_PORT
-              valueFrom:
-                secretKeyRef:
-                  name: api-secret
-                  key: SPRING_RABBITMQ_PORT
-
-            - name: SPRING_RABBITMQ_USERNAME
-              valueFrom:
-                secretKeyRef:
-                  name: api-secret
-                  key: SPRING_RABBITMQ_USERNAME
-
-            - name: SPRING_RABBITMQ_PASSWORD
-              valueFrom:
-                secretKeyRef:
-                  name: api-secret
-                  key: SPRING_RABBITMQ_PASSWORD
-
-            # ─── Redis
-            - name: SPRING_DATA_REDIS_HOST
-              valueFrom:
-                secretKeyRef:
-                  name: api-secret
-                  key: SPRING_DATA_REDIS_HOST
-
-            - name: SPRING_DATA_REDIS_PASSWORD
-              valueFrom:
-                secretKeyRef:
-                  name: api-secret
-                  key: SPRING_DATA_REDIS_PASSWORD
-
-            - name: SPRING_DATA_REDIS_PORT
-              valueFrom:
-                secretKeyRef:
-                  name: api-secret
-                  key: SPRING_DATA_REDIS_PORT
-
-            # ─── JWT
-            - name: JWT_SECRET
-              valueFrom:
-                secretKeyRef:
-                  name: api-secret
-                  key: JWT_SECRET
-
-            - name: JWT_EXPIRATION_MS
-              valueFrom:
-                secretKeyRef:
-                  name: api-secret
-                  key: JWT_EXPIRATION_MS
-
+          envFrom:
+            - configMapRef:
+                name: api-config
+            - secretRef:
+                name: api-secret
           resources:
             requests:
               cpu: "500m"

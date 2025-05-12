@@ -2,6 +2,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: api-config
-  namespace: api
 data:
-  SPRING_PROFILES_ACTIVE: "dev" # overlay에서 override 가능
+  SPRING_JPA_HIBERNATE_DDL_AUTO: update
+  SPRING_JPA_SHOW_SQL: "false"
+  SPRING_PROFILES_ACTIVE: prod
