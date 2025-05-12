@@ -15,8 +15,8 @@ chmod +x ./scripts/seal-all-secrets.sh
 kubeseal \
  --cert ./pub-cert.pem \
  --format yaml \
- --name fe-secret-dev \
+ --name rabbitmq-secret-dev \
  --namespace image-converter \
- < apps/frontend/overlays/dev/secret.yaml \
+ < apps/rabbitmq/overlays/dev/secret.yaml \
 
-> apps/frontend/overlays/dev/sealed-secret.yaml
+> apps/rabbitmq/overlays/dev/sealed-secret.yaml
