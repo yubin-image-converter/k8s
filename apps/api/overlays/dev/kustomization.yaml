@@ -9,9 +9,4 @@ images:
   - name: shinyubin/image-converter-api
     newTag: latest
 
-nameSuffix: -dev
-
 namespace: image-converter
-
-patchesStrategicMerge:
-  - patch-env.yaml

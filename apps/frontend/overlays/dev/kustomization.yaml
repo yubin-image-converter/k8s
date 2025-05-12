@@ -5,9 +5,4 @@ resources:
   - ../../base
   - sealed-secret.yaml
 
-nameSuffix: -dev
-
 namespace: image-converter
-
-patchesStrategicMerge:
-  - patch-env.yaml
