@@ -2,13 +2,10 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
 resources:
-  # 앱
+  - infrastructures
   - apps/api-dev.yaml
   - apps/auth-dev.yaml
   - apps/frontend-dev.yaml
+  - apps/rabbitmq-dev.yaml
   - apps/websocket-dev.yaml
   - apps/worker-dev.yaml
-  - apps/rabbitmq-dev.yaml
-
-  # 인프라
-  - infrastructures

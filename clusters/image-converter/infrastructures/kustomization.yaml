@@ -5,3 +5,4 @@ resources:
   - ../../../../infrastructures/base
   - ../../../../infrastructures/cert-manager
   - ../../../../infrastructures/ingress
+  - ../../../../infrastructures/nfs
