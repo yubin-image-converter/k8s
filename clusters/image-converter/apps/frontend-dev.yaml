@@ -11,7 +11,7 @@ spec:
     path: apps/frontend/overlays/dev
   destination:
     server: https://kubernetes.default.svc
-    # namespace: image-converter
+    namespace: frontend
   syncPolicy:
     automated:
       prune: true
