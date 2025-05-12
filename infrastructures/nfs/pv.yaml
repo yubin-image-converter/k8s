@@ -7,7 +7,11 @@ spec:
     storage: 30Gi
   accessModes:
     - ReadWriteMany
+  storageClassName: ""
+  mountOptions:
+    - vers=3
+    - proto=tcp
   nfs:
-    server: 34.64.52.180
+    server: 10.178.0.3
     path: /mnt/nfs/uploads
   persistentVolumeReclaimPolicy: Retain
