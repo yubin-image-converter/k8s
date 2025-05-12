@@ -14,6 +14,7 @@ spec:
     spec:
       containers:
         - name: websocket
+          image: shinyubin/image-converter-websocket
           envFrom:
             - secretRef:
                 name: websocket-secret-dev
