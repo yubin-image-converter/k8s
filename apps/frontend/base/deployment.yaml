@@ -17,6 +17,7 @@ spec:
     spec:
       containers:
         - name: frontend
+          imagePullPolicy: Always
           image: shinyubin/image-converter-fe:latest
           ports:
             - containerPort: 80
