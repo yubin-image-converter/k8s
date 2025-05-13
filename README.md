@@ -84,3 +84,7 @@ docker inspect shinyubin/image-converter-worker:latest | grep -i sha256
             "shinyubin/image-converter-worker@sha256:00138374f56de1d0d7e357a00e03ab2fde9ac2947fc3554c06fa8251b4ac2c8f"
                 "sha256:0499fc56f5e2303d8f36d9dd1908d469f446b41e0af05a98a5bcdbcecc799a43",
                 "sha256:d38857fc559cfc64ecf4317303e364c97f42b3f2cec09b2fbccaea607924c22d"
+
+# Pod 이름 자동으로 가져와서 로그 보기 (예: worker)
+
+kubectl logs -f $(kubectl get pod -l app=worker -n image-converter -o name) -n image-converter
