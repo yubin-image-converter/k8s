@@ -65,3 +65,22 @@ kubeseal \
  < apps/worker/overlays/dev/secret.yaml \
 
 > apps/worker/overlays/dev/sealed-secret.yaml
+
+kubectl get pods -A
+kubectl describe pod api-server-cb9b59f7-qm585 -n image-converter
+kubectl logs api-server-cb9b59f7-qm585 -n image-converter
+kubectl logs worker-65c5c94cc6-7ksmw -n image-converter
+kubectl describe pod worker-65c5c94cc6-7ksmw -n image-converter
+
+kubectl get pod -n image-converter -o wide | grep worker
+kubectl describe pod worker-5656f46c84-kx52s -n image-converter | grep Image
+
+image-converter rabbitmq-7966569bcd-2b6xv 1/1 Running 0 13h
+image-converter worker-5656f46c84-kx52s 0/1 CrashLoopBackOff 10 (97s ago) 13h
+
+docker inspect shinyubin/image-converter-worker:latest | grep -i sha256
+
+        "Id": "sha256:60d44455fd267947fd41331c66a8f6a7eb3ce97542e2042237e638e327439941",
+            "shinyubin/image-converter-worker@sha256:00138374f56de1d0d7e357a00e03ab2fde9ac2947fc3554c06fa8251b4ac2c8f"
+                "sha256:0499fc56f5e2303d8f36d9dd1908d469f446b41e0af05a98a5bcdbcecc799a43",
+                "sha256:d38857fc559cfc64ecf4317303e364c97f42b3f2cec09b2fbccaea607924c22d"
