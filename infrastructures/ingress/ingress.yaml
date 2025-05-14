@@ -6,6 +6,7 @@ metadata:
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt-prod
     argocd-refresh-dummy: "force-sync-20250514-1129"
+    cert-manager.io/issuer: ""
 spec:
   ingressClassName: nginx
   tls:
