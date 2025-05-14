@@ -12,3 +12,4 @@ data:
   REDIS_HOST: "10.178.0.3" # 'localhost'는 쿠버네티스에서는 안 돼!
   REDIS_PORT: "6379"
   REDIS_USER: default
+  WS_SERVER_URL: wss://worker-socket.image-converter.yubinshin.com
