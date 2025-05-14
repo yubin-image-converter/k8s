@@ -87,4 +87,22 @@ docker inspect shinyubin/image-converter-worker:latest | grep -i sha256
 
 # Pod 이름 자동으로 가져와서 로그 보기 (예: worker)
 
+kubectl logs -f $(kubectl get pod -l app=api -n image-converter -o name) -n image-converter
+kubectl logs -f $(kubectl get pod -l app=auth -n image-converter -o name) -n image-converter
+kubectl logs -f $(kubectl get pod -l app=frontend -n image-converter -o name) -n image-converter
+kubectl logs -f $(kubectl get pod -l app=websocket -n image-converter -o name) -n image-converter
 kubectl logs -f $(kubectl get pod -l app=worker -n image-converter -o name) -n image-converter
+
+kubectl logs -f -l app=api-server -n image-converter
+kubectl logs -f -l app=auth-server -n image-converter
+kubectl logs -f -l app=frontend-server -n image-converter
+
+kubectl logs -f -l app=websocket -n image-converter
+kubectl logs -f -l app=worker -n image-converter
+
+gcloud container clusters resize image-converter-cluster \
+ --node-pool=default-pool \
+ --num-nodes=3 \
+ --zone=asia-northeast3-a
+
+gcloud compute instances list
