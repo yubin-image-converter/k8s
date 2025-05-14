@@ -106,3 +106,5 @@ gcloud container clusters resize image-converter-cluster \
  --zone=asia-northeast3-a
 
 gcloud compute instances list
+
+frontend-server-6858479bd6-cr9r9
