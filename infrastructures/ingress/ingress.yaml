@@ -7,6 +7,7 @@ metadata:
     cert-manager.io/cluster-issuer: letsencrypt-prod
     argocd-refresh-dummy: "force-sync-20250514-1129"
     cert-manager.io/issuer: ""
+    nginx.ingress.kubernetes.io/proxy-body-size: "100m"
 spec:
   ingressClassName: nginx
   tls:
