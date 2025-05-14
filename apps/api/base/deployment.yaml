@@ -17,6 +17,7 @@ spec:
       containers:
         - name: api-server
           image: shinyubin/image-converter-api:latest
+          imagePullPolicy: Always
           ports:
             - containerPort: 8080
           envFrom:
