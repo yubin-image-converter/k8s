@@ -34,7 +34,7 @@ spec:
               memory: "1Gi"
           volumeMounts:
             - name: uploads
-              mountPath: /app/uploads
+              mountPath: /uploads
       volumes:
         - name: uploads
           persistentVolumeClaim:
