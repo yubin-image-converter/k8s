@@ -16,7 +16,7 @@ data:
   SPRING_DATA_REDIS_HOST: "10.178.0.3"
   SPRING_DATA_REDIS_PORT: "6379"
   SPRINGDOC_API_DOCS_PATH: "/v3/api-docs"
-  SPRINGDOC_SWAGGER_UI_URL: "/api//v3/api-docs"
+  SPRINGDOC_SWAGGER_UI_URL: "/api/v3/api-docs"
   SPRINGDOC_SWAGGER_UI_CONFIG_URL: "/api/v3/api-docs/swagger-config"
   SERVER_ADDRESS: "0.0.0.0"
   SERVER_PORT: "8080"

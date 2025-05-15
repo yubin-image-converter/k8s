@@ -111,3 +111,5 @@ gcloud compute instances list
 frontend-server-6858479bd6-cr9r9
 
 kubectl logs -f -l app=websocket-server -n image-converter
+
+kubectl rollout restart deployment api-server -n image-converter
