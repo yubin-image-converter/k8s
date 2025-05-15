@@ -18,7 +18,7 @@ spec:
       containers:
         - name: frontend
           imagePullPolicy: Always
-          image: shinyubin/image-converter-fe:45
+          image: shinyubin/image-converter-fe:49
           ports:
             - containerPort: 80
           envFrom:
