@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: auth-dev
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/yubin-image-converter/k8s.git
+    targetRevision: main
+    path: apps/auth/overlays/dev
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: image-converter
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true

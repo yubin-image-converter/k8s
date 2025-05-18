@@ -1,0 +1,26 @@
+# frontend-deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend-server
+  labels:
+    app: frontend-server
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: frontend-server
+  template:
+    metadata:
+      labels:
+        app: frontend-server
+    spec:
+      containers:
+        - name: frontend
+          imagePullPolicy: Always
+          image: shinyubin/image-converter-fe:49
+          ports:
+            - containerPort: 80
+          envFrom:
+            - secretRef:
+                name: fe-secret

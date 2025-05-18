@@ -1,0 +1,14 @@
+# cm.yaml (첨삭 후)
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: websocket-config
+data:
+  NODE_ENV: "production"
+  LOG_LEVEL: "info"
+  CLIENT_ORIGIN: "https://image-converter.yubinshin.com"
+  API_SERVER_URL: "https://api.image-converter.yubinshin.com"
+  CLIENT_SOCKET_URL: "wss://client-socket.image-converter.yubinshin.com"
+  WORKER_SOCKET_URL: "wss://worker-socket.image-converter.yubinshin.com"
+  CLIENT_SOCKET_PORT: "4000"
+  WORKER_SOCKET_PORT: "4001"

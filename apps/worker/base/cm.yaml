@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: worker-config
+data:
+  RABBITMQ_EXCHANGE: image.convert.exchange
+  RABBITMQ_QUEUE: image.convert.queue
+  RABBITMQ_ROUTING_KEY: image.convert.routingKey
+  RABBITMQ_RESULT_QUEUE: image.convert.result.queue
+  NFS_ROOT: /uploads
+  PUBLIC_UPLOAD_BASE_URL: /uploads
+  REDIS_HOST: "10.178.0.3" # 'localhost'는 쿠버네티스에서는 안 돼!
+  REDIS_PORT: "6379"
+  REDIS_USER: default
+  WS_SERVER_URL: wss://worker-socket.image-converter.yubinshin.com

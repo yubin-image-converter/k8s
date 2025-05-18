@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nfs-test-pod
+  namespace: image-converter
+spec:
+  containers:
+    - name: busybox
+      image: busybox
+      command: ["sleep", "3600"]
+      volumeMounts:
+        - name: upload
+          mountPath: /uploads
+  volumes:
+    - name: upload
+      persistentVolumeClaim:
+        claimName: uploads-pvc

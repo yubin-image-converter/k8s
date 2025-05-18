@@ -1,0 +1,3 @@
+resources:
+  - cluster-issuer.yaml
+  - image-converter-cert.yaml

@@ -1,0 +1,19 @@
+# macOS 불필요 파일
+.DS_Store
+
+# Kustomize build output
+*.tmp
+*.bak
+.kubeconfig
+
+# Kubernetes client cache
+.kube/
+
+image-converter-k8s.code-workspace
+
+secret.yaml
+**/secret.yaml
+
+*.pem
+
+main.key

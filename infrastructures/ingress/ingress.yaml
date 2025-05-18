@@ -1,0 +1,71 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: multi-ingress
+  namespace: image-converter
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+    argocd-refresh-dummy: "force-sync-20250514-1129"
+    cert-manager.io/issuer: ""
+    nginx.ingress.kubernetes.io/proxy-body-size: "100m"
+spec:
+  ingressClassName: nginx
+  tls:
+    - hosts:
+        - image-converter.yubinshin.com
+        - api.image-converter.yubinshin.com
+        - authentication.image-converter.yubinshin.com
+        - client-socket.image-converter.yubinshin.com
+        - worker-socket.image-converter.yubinshin.com
+      secretName: image-converter-tls
+  rules:
+    - host: image-converter.yubinshin.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: frontend-service
+                port:
+                  number: 80
+    - host: api.image-converter.yubinshin.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: api-service
+                port:
+                  number: 80
+    - host: authentication.image-converter.yubinshin.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: auth-service
+                port:
+                  number: 80
+    - host: client-socket.image-converter.yubinshin.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: websocket-service
+                port:
+                  number: 4000
+    - host: worker-socket.image-converter.yubinshin.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: websocket-service
+                port:
+                  number: 4001

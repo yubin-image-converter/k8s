@@ -1,0 +1,16 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: image-converter-cert
+  namespace: image-converter
+spec:
+  secretName: image-converter-tls
+  issuerRef:
+    name: letsencrypt-prod
+    kind: ClusterIssuer
+  dnsNames:
+    - image-converter.yubinshin.com
+    - api.image-converter.yubinshin.com
+    - authentication.image-converter.yubinshin.com
+    - client-socket.image-converter.yubinshin.com
+    - worker-socket.image-converter.yubinshin.com

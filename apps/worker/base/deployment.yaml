@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: worker
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: worker
+  template:
+    metadata:
+      labels:
+        app: worker
+    spec:
+      containers:
+        - name: worker
+          image: shinyubin/image-converter-worker:18
+          imagePullPolicy: Always
+          envFrom:
+            - configMapRef:
+                name: worker-config
+            - secretRef:
+                name: worker-secret
+          volumeMounts:
+            - name: uploads
+              mountPath: /uploads
+      volumes:
+        - name: uploads
+          persistentVolumeClaim:
+            claimName: uploads-pvc
