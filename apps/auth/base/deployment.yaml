@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: auth-server
-          image: shinyubin/image-converter-authentication:24
+          image: shinyubin/image-converter-authentication:26
           ports:
             - containerPort: 3000
           envFrom:
