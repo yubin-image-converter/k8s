@@ -5,8 +5,8 @@ resources:
   - ../../base
   - sealed-secret.yaml
 
-images:
-  - name: shinyubin/image-converter-api
-    newTag: latest
+# images:
+#   - name: shinyubin/image-converter-api
+#     newTag: latest
 
 namespace: image-converter
