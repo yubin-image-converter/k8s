@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: api-server
-          image: shinyubin/image-converter-api:35
+          image: shinyubin/image-converter-api:36
           imagePullPolicy: Always
           ports:
             - containerPort: 8080
