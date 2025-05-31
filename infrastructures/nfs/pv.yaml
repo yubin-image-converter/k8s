@@ -12,6 +12,6 @@ spec:
     - vers=3
     - proto=tcp
   nfs:
-    server: 10.178.0.3 # ← 내부 IP 로 변경
+    server: 10.178.0.2 # ← 내부 IP 로 변경
     path: /mnt/nfs/uploads
   persistentVolumeReclaimPolicy: Retain

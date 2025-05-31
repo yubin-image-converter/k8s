@@ -1,0 +1,21 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: acme-challenge-ingress
+  namespace: image-converter
+  annotations:
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+    nginx.ingress.kubernetes.io/use-regex: "true"
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: api.image-converter.yubinshin.com
+      http:
+        paths:
+          - path: "/.well-known/acme-challenge/.*"
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: ingress-nginx-controller
+                port:
+                  number: 80

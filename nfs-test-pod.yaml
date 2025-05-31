@@ -1,17 +1,24 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: nfs-test-pod
+  name: nfs-debugger
   namespace: image-converter
 spec:
   containers:
-    - name: busybox
-      image: busybox
-      command: ["sleep", "3600"]
+    - name: alpine
+      image: alpine:3.18
+      command: ["/bin/sh", "-c", "while true; do sleep 30; done"]
       volumeMounts:
-        - name: upload
-          mountPath: /uploads
+        - name: nfs-volume
+          mountPath: /mnt/nfs
+        - name: tmp-volume
+          mountPath: /mnt/tmp
+      tty: true
+      stdin: true
   volumes:
-    - name: upload
-      persistentVolumeClaim:
-        claimName: uploads-pvc
+    - name: nfs-volume
+      nfs:
+        server: 10.178.0.2
+        path: /mnt/nfs/uploads
+    - name: tmp-volume
+      emptyDir: {}
