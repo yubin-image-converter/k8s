@@ -6,7 +6,7 @@ metadata:
     app: api-server
     argocd.argoproj.io/instance: api-dev
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: api-server
