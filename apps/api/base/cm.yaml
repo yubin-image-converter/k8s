@@ -6,7 +6,7 @@ data:
   SPRING_APPLICATION_NAME: "image-converter-api"
   STATIC_LOCATIONS: "file:/uploads/"
   SPRING_PROFILES_ACTIVE: "prod"
-  SPRING_JPA_HIBERNATE_DDL_AUTO: "create"
+  SPRING_JPA_HIBERNATE_DDL_AUTO: "update"
   SPRING_JPA_SHOW_SQL: "true"
   SPRING_JPA_DEFAULT_SCHEMA: "public"
   SPRING_JPA_DIALECT: "org.hibernate.dialect.PostgreSQLDialect"
