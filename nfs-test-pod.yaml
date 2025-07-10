@@ -1,24 +1,25 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: nfs-debugger
+  name: nfs-test-pod
   namespace: image-converter
 spec:
   containers:
-    - name: alpine
-      image: alpine:3.18
-      command: ["/bin/sh", "-c", "while true; do sleep 30; done"]
+    - name: test
+      image: busybox
+      command: ["/bin/sh", "-c"]
+      args:
+        - |
+          echo "[✅ NFS Test] Writing to /mnt/uploads/hello.txt...";
+          touch /mnt/uploads/hello.txt;
+          echo "Hello from NFS!" > /mnt/uploads/hello.txt;
+          ls -la /mnt/uploads;
+          sleep 3600
       volumeMounts:
-        - name: nfs-volume
-          mountPath: /mnt/nfs
-        - name: tmp-volume
-          mountPath: /mnt/tmp
-      tty: true
-      stdin: true
+        - name: nfs-vol
+          mountPath: /mnt/uploads
   volumes:
-    - name: nfs-volume
-      nfs:
-        server: 10.178.0.2
-        path: /mnt/nfs/uploads
-    - name: tmp-volume
-      emptyDir: {}
+    - name: nfs-vol
+      persistentVolumeClaim:
+        claimName: uploads-pvc
+  restartPolicy: Never
