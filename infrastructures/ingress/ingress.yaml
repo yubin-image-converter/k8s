@@ -8,6 +8,7 @@ metadata:
     argocd-refresh-dummy: "force-sync-20250514-1129"
     cert-manager.io/issuer: ""
     nginx.ingress.kubernetes.io/proxy-body-size: "100m"
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
 spec:
   ingressClassName: nginx
   tls:
