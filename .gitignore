@@ -17,3 +17,5 @@ secret.yaml
 *.pem
 
 main.key
+
+redis-postgresql-client.yaml
